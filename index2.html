@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Transaksi - Otomotif Jaya</title>
+</head>
+<body bgcolor="#f4f4f4" style="color: white; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+    <table width="100%" border="1" cellspacing="0" cellpadding="10">
+        <tr bgcolor="#2C2E39">
+            <td colspan="2" align="center">
+                <h1><a href="index.html" style="color: white; text-decoration: none;"><img src="Logo.png" width="80" height="80"  valign="middle">All Star Otomotif</a></h1>
+                <marquee behavior="scroll" direction="left" s>Lengkapi data diri Anda untuk melanjutkan transaksi atau reservasi.</marquee>
+            </td>
+        </tr>
+
+        <tr bgcolor="#2C2E39">
+            <td colspan="2" align="center">
+                <a href="index.html"  style="color: white; text-decoration: none;">Produk/Jasa</a> |
+                <a href="index2.html"  style="color: white; text-decoration: none;">Input Transaksi</a> |
+                <a href="index3.html" style="color: white; text-decoration: none;">Tentang Kami</a>
+            </td>
+        </tr>
+
+        <tr bgcolor="#2C2E39">
+            <td width="20%" valign="top" >
+                <h3>Informasi Tambahan</h3>
+                <p>Pastikan semua data terisi dengan benar sebelum mengirimkan formulir.</p>
+                <p><a href="index.html" style="color: white;">Kembali ke Produk</a></p>
+            </td>
+
+            <td width="80%" valign="top" bgcolor="#2C2E39">
+                <h2>Formulir Pembelian / Reservasi</h2>
+                <form action="#" method="get"> <fieldset>
+                        <legend>Data Diri Pelanggan</legend>
+                        <p>
+                            <label for="nama_lengkap">Nama Lengkap:</label><br>
+                            <input type="text" id="nama_lengkap" name="nama_lengkap" size="50" required>
+                        </p>
+                        <p>
+                            <label for="alamat">Alamat Lengkap:</label><br>
+                            <textarea id="alamat" name="alamat" rows="4" cols="48" required></textarea>
+                        </p>
+                        <p>
+                            <label for="no_telepon">Nomor Telepon (WhatsApp Aktif):</label><br>
+                            <input type="tel" id="no_telepon" name="no_telepon" pattern="[0-9]{10,15}" placeholder="Contoh: 081234567890" required>
+                        </p>
+                        <p>
+                            <label for="email">Alamat Email:</label><br>
+                            <input type="email" id="email" name="email" size="50" required>
+                        </p>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Detail Pesanan / Reservasi</legend>
+                        <p>
+                            <label for="produk_jasa">Produk/Jasa yang Dipesan:</label><br>
+                            <input type="text" id="produk_jasa" name="produk_jasa" size="50" value="" readonly>
+                            <em><small>(Akan terisi otomatis jika Anda klik "Beli" dari halaman produk, atau isi manual)</small></em>
+                        </p>
+                        <p>
+                            <label for="jumlah">Jumlah (jika produk fisik):</label><br>
+                            <input type="number" id="jumlah" name="jumlah" min="1" value="1">
+                        </p>
+                        <p>
+                            <label for="tanggal_reservasi">Tanggal Reservasi (jika jasa):</label><br>
+                            <input type="date" id="tanggal_reservasi" name="tanggal_reservasi">
+                        </p>
+                        <p>
+                            <label for="jam_reservasi">Jam Reservasi (jika jasa):</label><br>
+                            <input type="time" id="jam_reservasi" name="jam_reservasi">
+                        </p>
+                        <p>
+                            <label>Metode Pembayaran:</label><br>
+                            <input type="radio" id="transfer_bank" name="metode_pembayaran" value="Transfer Bank" checked>
+                            <label for="transfer_bank">Transfer Bank</label><br>
+                            <input type="radio" id="cod" name="metode_pembayaran" value="COD">
+                            <label for="cod">Bayar di Tempat (COD)</label><br>
+                            <input type="radio" id="kartu_kredit" name="metode_pembayaran" value="Kartu Kredit">
+                            <label for="kartu_kredit">Kartu Kredit (Segera Hadir)</label>
+                        </p>
+                        <p>
+                            <label for="catatan_tambahan">Catatan Tambahan:</label><br>
+                            <textarea id="catatan_tambahan" name="catatan_tambahan" rows="4" cols="48"></textarea>
+                        </p>
+                    </fieldset>
+                    <br>
+                    <input type="submit" value="Kirim Pesanan/Reservasi">
+                    <input type="reset" value="Reset Formulir">
+                </form>
+
+                <script>
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const produk = urlParams.get('produk');
+                    const layanan = urlParams.get('layanan');
+                    const kategori = urlParams.get('kategori');
+                    const inputProdukJasa = document.getElementById('produk_jasa');
+
+                    if (produk && inputProdukJasa) {
+                        inputProdukJasa.value = produk;
+                    } else if (layanan && inputProdukJasa) {
+                        inputProdukJasa.value = "Reservasi Layanan: " + layanan;
+                    } else if (kategori && inputProdukJasa) {
+                        inputProdukJasa.value = "Pembelian Kategori: " + kategori;
+                    }
+                </script>
+
+            </td>
+        </tr>
+
+        <tr bgcolor="#2C2E39">
+            <td colspan="2" align="center">
+                <p>&copy; 2025 All Star Otomotif. Hak Cipta Dilindungi.</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
