@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Transaksi - All Star Otomotif </title>
+    <title>Input Transaksi - Otomotif Jaya</title>
 </head>
 <body bgcolor="#f4f4f4" style="color: white; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
     <table width="100%" border="1" cellspacing="0" cellpadding="10">
@@ -31,8 +31,8 @@
 
             <td width="80%" valign="top" bgcolor="#2C2E39">
                 <h2>Formulir Pembelian / Reservasi</h2>
-                <form action="#" method="get"> <fieldset>
-                        <legend>Data Diri Pelanggan</legend>
+                <form action="#" method="get"> 
+                        <h3>Data Diri Pelanggan</h3>
                         <p>
                             <label for="nama_lengkap">Nama Lengkap:</label><br>
                             <input type="text" id="nama_lengkap" name="nama_lengkap" size="50" required>
@@ -49,10 +49,10 @@
                             <label for="email">Alamat Email:</label><br>
                             <input type="email" id="email" name="email" size="50" required>
                         </p>
-                    </fieldset>
+                    
 
-                    <fieldset>
-                        <legend>Detail Pesanan / Reservasi</legend>
+                    
+                        <h3>Detail Pesanan / Reservasi</h3>
                         <p>
                             <label for="produk_jasa">Produk/Jasa yang Dipesan:</label><br>
                             <input type="text" id="produk_jasa" name="produk_jasa" size="50" value="" readonly>
@@ -83,27 +83,11 @@
                             <label for="catatan_tambahan">Catatan Tambahan:</label><br>
                             <textarea id="catatan_tambahan" name="catatan_tambahan" rows="4" cols="48"></textarea>
                         </p>
-                    </fieldset>
+                   
                     <br>
                     <input type="submit" value="Kirim Pesanan/Reservasi">
                     <input type="reset" value="Reset Formulir">
                 </form>
-
-                <script>
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const produk = urlParams.get('produk');
-                    const layanan = urlParams.get('layanan');
-                    const kategori = urlParams.get('kategori');
-                    const inputProdukJasa = document.getElementById('produk_jasa');
-
-                    if (produk && inputProdukJasa) {
-                        inputProdukJasa.value = produk;
-                    } else if (layanan && inputProdukJasa) {
-                        inputProdukJasa.value = "Reservasi Layanan: " + layanan;
-                    } else if (kategori && inputProdukJasa) {
-                        inputProdukJasa.value = "Pembelian Kategori: " + kategori;
-                    }
-                </script>
 
             </td>
         </tr>
